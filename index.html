@@ -39,32 +39,33 @@
         <script src="data/readeaplicaodaLeidaMataAtlnticaPI_3.js"></script>
         <script src="data/UnidadesdeConservaoEstadual_4.js"></script>
         <script src="data/UnidadesdeConservaoFederalMMA_2025_03_5.js"></script>
-        <script src="data/TerrasIndgenas_6.js"></script>
-        <script src="data/TerritotiodeDesenvolvimento_7.js"></script>
-        <script src="data/EmpreendimentosdegeraoEmoperao_9.js"></script>
-        <script src="data/EmpreendimentosdegeraoConstruonoiniciada_10.js"></script>
-        <script src="data/SubestaesMdia_11.js"></script>
-        <script src="data/SubestaesAlta_12.js"></script>
-        <script src="data/138kV_13.js"></script>
-        <script src="data/69kV_14.js"></script>
-        <script src="data/230kV_15.js"></script>
-        <script src="data/500kV_16.js"></script>
-        <script src="data/DGC_17.js"></script>
-        <script src="data/DECapuradoanual_18.js"></script>
-        <script src="data/DEClimiteanual_19.js"></script>
-        <script src="data/FECapuradoanual_20.js"></script>
-        <script src="data/FEClimiteanual_21.js"></script>
-        <script src="data/Gasodutos_de_distribuio_22.js"></script>
-        <script src="data/Gasodutos_de_transporte_23.js"></script>
-        <script src="data/Dutos_de_escoamento_24.js"></script>
-        <script src="data/Pontos_de_entrega_de_gs_natural_25.js"></script>
-        <script src="data/Polos_de_processamento_de_gs_natural_26.js"></script>
-        <script src="data/Estaes_de_compresso_27.js"></script>
-        <script src="data/Terminais_GNL_28.js"></script>
+        <script src="data/UnidadesdeConservaoFederalSEICMBIO2024_6.js"></script>
+        <script src="data/TerrasIndgenas_7.js"></script>
+        <script src="data/TerritriosdeDesenvolvimento_8.js"></script>
+        <script src="data/EmpreendimentosdegeraoEmoperao_11.js"></script>
+        <script src="data/EmpreendimentosdegeraoConstruonoiniciada_12.js"></script>
+        <script src="data/SubestaesMdia_13.js"></script>
+        <script src="data/SubestaesAlta_14.js"></script>
+        <script src="data/138kV_15.js"></script>
+        <script src="data/69kV_16.js"></script>
+        <script src="data/230kV_17.js"></script>
+        <script src="data/500kV_18.js"></script>
+        <script src="data/DGC_19.js"></script>
+        <script src="data/DECapuradoanual_20.js"></script>
+        <script src="data/DEClimiteanual_21.js"></script>
+        <script src="data/FECapuradoanual_22.js"></script>
+        <script src="data/FEClimiteanual_23.js"></script>
+        <script src="data/Gasodutos_de_distribuio_24.js"></script>
+        <script src="data/Gasodutos_de_transporte_25.js"></script>
+        <script src="data/Dutos_de_escoamento_26.js"></script>
+        <script src="data/Pontos_de_entrega_de_gs_natural_27.js"></script>
+        <script src="data/Polos_de_processamento_de_gs_natural_28.js"></script>
+        <script src="data/Estaes_de_compresso_29.js"></script>
+        <script src="data/Terminais_GNL_30.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-11.75911767042502,-39.052250085332126],[-9.324502400986125,-35.58869534923828]]);
+        }).fitBounds([[-11.749343584638492,-38.94053177358041],[-9.334276486772657,-35.70041366099]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -462,7 +463,51 @@
             style: style_UnidadesdeConservaoFederalMMA_2025_03_5_0,
         });
         bounds_group.addLayer(layer_UnidadesdeConservaoFederalMMA_2025_03_5);
-        function pop_TerrasIndgenas_6(feature, layer) {
+        function pop_UnidadesdeConservaoFederalSEICMBIO2024_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NomeUC" colspan="2"><strong>NomeUC</strong><br />' + (feature.properties['NomeUC'] !== null ? autolinker.link(String(feature.properties['NomeUC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="AREA_KM2" colspan="2"><strong>AREA_KM2</strong><br />' + (feature.properties['AREA_KM2'] !== null ? autolinker.link(String(feature.properties['AREA_KM2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_UnidadesdeConservaoFederalSEICMBIO2024_6_0() {
+            return {
+                pane: 'pane_UnidadesdeConservaoFederalSEICMBIO2024_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,180,60,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UnidadesdeConservaoFederalSEICMBIO2024_6');
+        map.getPane('pane_UnidadesdeConservaoFederalSEICMBIO2024_6').style.zIndex = 406;
+        map.getPane('pane_UnidadesdeConservaoFederalSEICMBIO2024_6').style['mix-blend-mode'] = 'normal';
+        var layer_UnidadesdeConservaoFederalSEICMBIO2024_6 = new L.geoJson(json_UnidadesdeConservaoFederalSEICMBIO2024_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UnidadesdeConservaoFederalSEICMBIO2024_6',
+            layerName: 'layer_UnidadesdeConservaoFederalSEICMBIO2024_6',
+            pane: 'pane_UnidadesdeConservaoFederalSEICMBIO2024_6',
+            onEachFeature: pop_UnidadesdeConservaoFederalSEICMBIO2024_6,
+            style: style_UnidadesdeConservaoFederalSEICMBIO2024_6_0,
+        });
+        bounds_group.addLayer(layer_UnidadesdeConservaoFederalSEICMBIO2024_6);
+        function pop_TerrasIndgenas_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['gid'] !== null ? autolinker.link(String(feature.properties['gid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -526,9 +571,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_TerrasIndgenas_6_0() {
+        function style_TerrasIndgenas_7_0() {
             return {
-                pane: 'pane_TerrasIndgenas_6',
+                pane: 'pane_TerrasIndgenas_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -541,20 +586,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_TerrasIndgenas_6');
-        map.getPane('pane_TerrasIndgenas_6').style.zIndex = 406;
-        map.getPane('pane_TerrasIndgenas_6').style['mix-blend-mode'] = 'normal';
-        var layer_TerrasIndgenas_6 = new L.geoJson(json_TerrasIndgenas_6, {
+        map.createPane('pane_TerrasIndgenas_7');
+        map.getPane('pane_TerrasIndgenas_7').style.zIndex = 407;
+        map.getPane('pane_TerrasIndgenas_7').style['mix-blend-mode'] = 'normal';
+        var layer_TerrasIndgenas_7 = new L.geoJson(json_TerrasIndgenas_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TerrasIndgenas_6',
-            layerName: 'layer_TerrasIndgenas_6',
-            pane: 'pane_TerrasIndgenas_6',
-            onEachFeature: pop_TerrasIndgenas_6,
-            style: style_TerrasIndgenas_6_0,
+            dataVar: 'json_TerrasIndgenas_7',
+            layerName: 'layer_TerrasIndgenas_7',
+            pane: 'pane_TerrasIndgenas_7',
+            onEachFeature: pop_TerrasIndgenas_7,
+            style: style_TerrasIndgenas_7_0,
         });
-        bounds_group.addLayer(layer_TerrasIndgenas_6);
-        function pop_TerritotiodeDesenvolvimento_7(feature, layer) {
+        bounds_group.addLayer(layer_TerrasIndgenas_7);
+        function pop_TerritriosdeDesenvolvimento_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -615,11 +660,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_TerritotiodeDesenvolvimento_7_0(feature) {
+        function style_TerritriosdeDesenvolvimento_8_0(feature) {
             switch(String(feature.properties['Território de Desenvolvimento'])) {
                 case 'Agreste Central Sergipano':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -634,7 +679,7 @@
                     break;
                 case 'Alto Sertão':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -649,7 +694,7 @@
                     break;
                 case 'Baixo São Francisco':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -664,7 +709,7 @@
                     break;
                 case 'Centro Sul':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -679,7 +724,7 @@
                     break;
                 case 'Grande Aracaju':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -694,7 +739,7 @@
                     break;
                 case 'Leste':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -709,7 +754,7 @@
                     break;
                 case 'Médio Sertão':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -724,7 +769,7 @@
                     break;
                 case 'Sul Sergipano':
                     return {
-                pane: 'pane_TerritotiodeDesenvolvimento_7',
+                pane: 'pane_TerritriosdeDesenvolvimento_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -739,28 +784,36 @@
                     break;
             }
         }
-        map.createPane('pane_TerritotiodeDesenvolvimento_7');
-        map.getPane('pane_TerritotiodeDesenvolvimento_7').style.zIndex = 407;
-        map.getPane('pane_TerritotiodeDesenvolvimento_7').style['mix-blend-mode'] = 'normal';
-        var layer_TerritotiodeDesenvolvimento_7 = new L.geoJson(json_TerritotiodeDesenvolvimento_7, {
+        map.createPane('pane_TerritriosdeDesenvolvimento_8');
+        map.getPane('pane_TerritriosdeDesenvolvimento_8').style.zIndex = 408;
+        map.getPane('pane_TerritriosdeDesenvolvimento_8').style['mix-blend-mode'] = 'normal';
+        var layer_TerritriosdeDesenvolvimento_8 = new L.geoJson(json_TerritriosdeDesenvolvimento_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TerritotiodeDesenvolvimento_7',
-            layerName: 'layer_TerritotiodeDesenvolvimento_7',
-            pane: 'pane_TerritotiodeDesenvolvimento_7',
-            onEachFeature: pop_TerritotiodeDesenvolvimento_7,
-            style: style_TerritotiodeDesenvolvimento_7_0,
+            dataVar: 'json_TerritriosdeDesenvolvimento_8',
+            layerName: 'layer_TerritriosdeDesenvolvimento_8',
+            pane: 'pane_TerritriosdeDesenvolvimento_8',
+            onEachFeature: pop_TerritriosdeDesenvolvimento_8,
+            style: style_TerritriosdeDesenvolvimento_8_0,
         });
-        bounds_group.addLayer(layer_TerritotiodeDesenvolvimento_7);
-        map.createPane('pane_Velocidadedosventosms100m_8');
-        map.getPane('pane_Velocidadedosventosms100m_8').style.zIndex = 408;
-        var img_Velocidadedosventosms100m_8 = 'data/Velocidadedosventosms100m_8.png';
-        var img_bounds_Velocidadedosventosms100m_8 = [[-11.56625,-38.24375],[-9.51625,-36.39625]];
-        var layer_Velocidadedosventosms100m_8 = new L.imageOverlay(img_Velocidadedosventosms100m_8,
-                                              img_bounds_Velocidadedosventosms100m_8,
-                                              {pane: 'pane_Velocidadedosventosms100m_8'});
-        bounds_group.addLayer(layer_Velocidadedosventosms100m_8);
-        function pop_EmpreendimentosdegeraoEmoperao_9(feature, layer) {
+        bounds_group.addLayer(layer_TerritriosdeDesenvolvimento_8);
+        map.createPane('pane_Velocidadedosventosms100m_9');
+        map.getPane('pane_Velocidadedosventosms100m_9').style.zIndex = 409;
+        var img_Velocidadedosventosms100m_9 = 'data/Velocidadedosventosms100m_9.png';
+        var img_bounds_Velocidadedosventosms100m_9 = [[-11.56625,-38.24375],[-9.51625,-36.39625]];
+        var layer_Velocidadedosventosms100m_9 = new L.imageOverlay(img_Velocidadedosventosms100m_9,
+                                              img_bounds_Velocidadedosventosms100m_9,
+                                              {pane: 'pane_Velocidadedosventosms100m_9'});
+        bounds_group.addLayer(layer_Velocidadedosventosms100m_9);
+        map.createPane('pane_IrradiaoSolarAnualinclinado10Whmdia_10');
+        map.getPane('pane_IrradiaoSolarAnualinclinado10Whmdia_10').style.zIndex = 410;
+        var img_IrradiaoSolarAnualinclinado10Whmdia_10 = 'data/IrradiaoSolarAnualinclinado10Whmdia_10.png';
+        var img_bounds_IrradiaoSolarAnualinclinado10Whmdia_10 = [[-11.5675,-38.245],[-9.5175,-36.3975]];
+        var layer_IrradiaoSolarAnualinclinado10Whmdia_10 = new L.imageOverlay(img_IrradiaoSolarAnualinclinado10Whmdia_10,
+                                              img_bounds_IrradiaoSolarAnualinclinado10Whmdia_10,
+                                              {pane: 'pane_IrradiaoSolarAnualinclinado10Whmdia_10'});
+        bounds_group.addLayer(layer_IrradiaoSolarAnualinclinado10Whmdia_10);
+        function pop_EmpreendimentosdegeraoEmoperao_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NomEmpreen" colspan="2"><strong>NomEmpreen</strong><br />' + (feature.properties['NomEmpreen'] !== null ? autolinker.link(String(feature.properties['NomEmpreen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -785,15 +838,15 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EmpreendimentosdegeraoEmoperao_9_0(feature) {
+        function style_EmpreendimentosdegeraoEmoperao_11_0(feature) {
             switch(String(feature.properties['SigTipoGer'])) {
                 case 'EOL':
                     return {
-                pane: 'pane_EmpreendimentosdegeraoEmoperao_9',
+                pane: 'pane_EmpreendimentosdegeraoEmoperao_11',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_9.svg',
+            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_11.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
@@ -801,11 +854,11 @@
                     break;
                 case 'UFV':
                     return {
-                pane: 'pane_EmpreendimentosdegeraoEmoperao_9',
+                pane: 'pane_EmpreendimentosdegeraoEmoperao_11',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_9.svg',
+            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_11.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
@@ -813,11 +866,11 @@
                     break;
                 case 'UHE':
                     return {
-                pane: 'pane_EmpreendimentosdegeraoEmoperao_9',
+                pane: 'pane_EmpreendimentosdegeraoEmoperao_11',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_9.svg',
+            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_11.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
@@ -825,11 +878,11 @@
                     break;
                 case 'UTE':
                     return {
-                pane: 'pane_EmpreendimentosdegeraoEmoperao_9',
+                pane: 'pane_EmpreendimentosdegeraoEmoperao_11',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_9.svg',
+            iconUrl: 'markers/EmpreendimentosdegeraoEmoperao_11.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
@@ -837,26 +890,26 @@
                     break;
             }
         }
-        map.createPane('pane_EmpreendimentosdegeraoEmoperao_9');
-        map.getPane('pane_EmpreendimentosdegeraoEmoperao_9').style.zIndex = 409;
-        map.getPane('pane_EmpreendimentosdegeraoEmoperao_9').style['mix-blend-mode'] = 'normal';
-        var layer_EmpreendimentosdegeraoEmoperao_9 = new L.geoJson(json_EmpreendimentosdegeraoEmoperao_9, {
+        map.createPane('pane_EmpreendimentosdegeraoEmoperao_11');
+        map.getPane('pane_EmpreendimentosdegeraoEmoperao_11').style.zIndex = 411;
+        map.getPane('pane_EmpreendimentosdegeraoEmoperao_11').style['mix-blend-mode'] = 'normal';
+        var layer_EmpreendimentosdegeraoEmoperao_11 = new L.geoJson(json_EmpreendimentosdegeraoEmoperao_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EmpreendimentosdegeraoEmoperao_9',
-            layerName: 'layer_EmpreendimentosdegeraoEmoperao_9',
-            pane: 'pane_EmpreendimentosdegeraoEmoperao_9',
-            onEachFeature: pop_EmpreendimentosdegeraoEmoperao_9,
+            dataVar: 'json_EmpreendimentosdegeraoEmoperao_11',
+            layerName: 'layer_EmpreendimentosdegeraoEmoperao_11',
+            pane: 'pane_EmpreendimentosdegeraoEmoperao_11',
+            onEachFeature: pop_EmpreendimentosdegeraoEmoperao_11,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_EmpreendimentosdegeraoEmoperao_9_0(feature));
+                return L.marker(latlng, style_EmpreendimentosdegeraoEmoperao_11_0(feature));
             },
         });
-        bounds_group.addLayer(layer_EmpreendimentosdegeraoEmoperao_9);
-        function pop_EmpreendimentosdegeraoConstruonoiniciada_10(feature, layer) {
+        bounds_group.addLayer(layer_EmpreendimentosdegeraoEmoperao_11);
+        function pop_EmpreendimentosdegeraoConstruonoiniciada_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NomEmpreen" colspan="2"><strong>NomEmpreen</strong><br />' + (feature.properties['NomEmpreen'] !== null ? autolinker.link(String(feature.properties['NomEmpreen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -881,15 +934,15 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EmpreendimentosdegeraoConstruonoiniciada_10_0(feature) {
+        function style_EmpreendimentosdegeraoConstruonoiniciada_12_0(feature) {
             switch(String(feature.properties['SigTipoGer'])) {
                 case 'UFV':
                     return {
-                pane: 'pane_EmpreendimentosdegeraoConstruonoiniciada_10',
+                pane: 'pane_EmpreendimentosdegeraoConstruonoiniciada_12',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/EmpreendimentosdegeraoConstruonoiniciada_10.svg',
+            iconUrl: 'markers/EmpreendimentosdegeraoConstruonoiniciada_12.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
@@ -897,26 +950,26 @@
                     break;
             }
         }
-        map.createPane('pane_EmpreendimentosdegeraoConstruonoiniciada_10');
-        map.getPane('pane_EmpreendimentosdegeraoConstruonoiniciada_10').style.zIndex = 410;
-        map.getPane('pane_EmpreendimentosdegeraoConstruonoiniciada_10').style['mix-blend-mode'] = 'normal';
-        var layer_EmpreendimentosdegeraoConstruonoiniciada_10 = new L.geoJson(json_EmpreendimentosdegeraoConstruonoiniciada_10, {
+        map.createPane('pane_EmpreendimentosdegeraoConstruonoiniciada_12');
+        map.getPane('pane_EmpreendimentosdegeraoConstruonoiniciada_12').style.zIndex = 412;
+        map.getPane('pane_EmpreendimentosdegeraoConstruonoiniciada_12').style['mix-blend-mode'] = 'normal';
+        var layer_EmpreendimentosdegeraoConstruonoiniciada_12 = new L.geoJson(json_EmpreendimentosdegeraoConstruonoiniciada_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EmpreendimentosdegeraoConstruonoiniciada_10',
-            layerName: 'layer_EmpreendimentosdegeraoConstruonoiniciada_10',
-            pane: 'pane_EmpreendimentosdegeraoConstruonoiniciada_10',
-            onEachFeature: pop_EmpreendimentosdegeraoConstruonoiniciada_10,
+            dataVar: 'json_EmpreendimentosdegeraoConstruonoiniciada_12',
+            layerName: 'layer_EmpreendimentosdegeraoConstruonoiniciada_12',
+            pane: 'pane_EmpreendimentosdegeraoConstruonoiniciada_12',
+            onEachFeature: pop_EmpreendimentosdegeraoConstruonoiniciada_12,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_EmpreendimentosdegeraoConstruonoiniciada_10_0(feature));
+                return L.marker(latlng, style_EmpreendimentosdegeraoConstruonoiniciada_12_0(feature));
             },
         });
-        bounds_group.addLayer(layer_EmpreendimentosdegeraoConstruonoiniciada_10);
-        function pop_SubestaesMdia_11(feature, layer) {
+        bounds_group.addLayer(layer_EmpreendimentosdegeraoConstruonoiniciada_12);
+        function pop_SubestaesMdia_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1388,9 +1441,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_SubestaesMdia_11_0() {
+        function style_SubestaesMdia_13_0() {
             return {
-                pane: 'pane_SubestaesMdia_11',
+                pane: 'pane_SubestaesMdia_13',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1404,27 +1457,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_SubestaesMdia_11');
-        map.getPane('pane_SubestaesMdia_11').style.zIndex = 411;
-        map.getPane('pane_SubestaesMdia_11').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesMdia_11 = new L.geoJson(json_SubestaesMdia_11, {
+        map.createPane('pane_SubestaesMdia_13');
+        map.getPane('pane_SubestaesMdia_13').style.zIndex = 413;
+        map.getPane('pane_SubestaesMdia_13').style['mix-blend-mode'] = 'normal';
+        var layer_SubestaesMdia_13 = new L.geoJson(json_SubestaesMdia_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SubestaesMdia_11',
-            layerName: 'layer_SubestaesMdia_11',
-            pane: 'pane_SubestaesMdia_11',
-            onEachFeature: pop_SubestaesMdia_11,
+            dataVar: 'json_SubestaesMdia_13',
+            layerName: 'layer_SubestaesMdia_13',
+            pane: 'pane_SubestaesMdia_13',
+            onEachFeature: pop_SubestaesMdia_13,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SubestaesMdia_11_0(feature));
+                return L.circleMarker(latlng, style_SubestaesMdia_13_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SubestaesMdia_11);
-        map.addLayer(layer_SubestaesMdia_11);
-        function pop_SubestaesAlta_12(feature, layer) {
+        bounds_group.addLayer(layer_SubestaesMdia_13);
+        map.addLayer(layer_SubestaesMdia_13);
+        function pop_SubestaesAlta_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Nome" colspan="2"><strong>Nome</strong><br />' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1449,9 +1502,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_SubestaesAlta_12_0() {
+        function style_SubestaesAlta_14_0() {
             return {
-                pane: 'pane_SubestaesAlta_12',
+                pane: 'pane_SubestaesAlta_14',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -1465,28 +1518,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_SubestaesAlta_12');
-        map.getPane('pane_SubestaesAlta_12').style.zIndex = 412;
-        map.getPane('pane_SubestaesAlta_12').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesAlta_12 = new L.geoJson(json_SubestaesAlta_12, {
+        map.createPane('pane_SubestaesAlta_14');
+        map.getPane('pane_SubestaesAlta_14').style.zIndex = 414;
+        map.getPane('pane_SubestaesAlta_14').style['mix-blend-mode'] = 'normal';
+        var layer_SubestaesAlta_14 = new L.geoJson(json_SubestaesAlta_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SubestaesAlta_12',
-            layerName: 'layer_SubestaesAlta_12',
-            pane: 'pane_SubestaesAlta_12',
-            onEachFeature: pop_SubestaesAlta_12,
+            dataVar: 'json_SubestaesAlta_14',
+            layerName: 'layer_SubestaesAlta_14',
+            pane: 'pane_SubestaesAlta_14',
+            onEachFeature: pop_SubestaesAlta_14,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SubestaesAlta_12_0(feature));
+                return L.circleMarker(latlng, style_SubestaesAlta_14_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SubestaesAlta_12);
-        map.addLayer(layer_SubestaesAlta_12);
-        function pop_138kV_13(feature, layer) {
+        bounds_group.addLayer(layer_SubestaesAlta_14);
+        map.addLayer(layer_SubestaesAlta_14);
+        function pop_138kV_15(feature, layer) {
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -1639,9 +1695,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_138kV_13_0() {
+        function style_138kV_15_0() {
             return {
-                pane: 'pane_138kV_13',
+                pane: 'pane_138kV_15',
                 opacity: 1,
                 color: 'rgba(141,90,153,1.0)',
                 dashArray: '',
@@ -1652,20 +1708,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_138kV_13');
-        map.getPane('pane_138kV_13').style.zIndex = 413;
-        map.getPane('pane_138kV_13').style['mix-blend-mode'] = 'normal';
-        var layer_138kV_13 = new L.geoJson(json_138kV_13, {
+        map.createPane('pane_138kV_15');
+        map.getPane('pane_138kV_15').style.zIndex = 415;
+        map.getPane('pane_138kV_15').style['mix-blend-mode'] = 'normal';
+        var layer_138kV_15 = new L.geoJson(json_138kV_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_138kV_13',
-            layerName: 'layer_138kV_13',
-            pane: 'pane_138kV_13',
-            onEachFeature: pop_138kV_13,
-            style: style_138kV_13_0,
+            dataVar: 'json_138kV_15',
+            layerName: 'layer_138kV_15',
+            pane: 'pane_138kV_15',
+            onEachFeature: pop_138kV_15,
+            style: style_138kV_15_0,
         });
-        bounds_group.addLayer(layer_138kV_13);
-        function pop_69kV_14(feature, layer) {
+        bounds_group.addLayer(layer_138kV_15);
+        function pop_69kV_16(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1807,9 +1863,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_69kV_14_0() {
+        function style_69kV_16_0() {
             return {
-                pane: 'pane_69kV_14',
+                pane: 'pane_69kV_16',
                 opacity: 1,
                 color: 'rgba(255,158,23,1.0)',
                 dashArray: '',
@@ -1820,21 +1876,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_69kV_14');
-        map.getPane('pane_69kV_14').style.zIndex = 414;
-        map.getPane('pane_69kV_14').style['mix-blend-mode'] = 'normal';
-        var layer_69kV_14 = new L.geoJson(json_69kV_14, {
+        map.createPane('pane_69kV_16');
+        map.getPane('pane_69kV_16').style.zIndex = 416;
+        map.getPane('pane_69kV_16').style['mix-blend-mode'] = 'normal';
+        var layer_69kV_16 = new L.geoJson(json_69kV_16, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_69kV_14',
-            layerName: 'layer_69kV_14',
-            pane: 'pane_69kV_14',
-            onEachFeature: pop_69kV_14,
-            style: style_69kV_14_0,
+            dataVar: 'json_69kV_16',
+            layerName: 'layer_69kV_16',
+            pane: 'pane_69kV_16',
+            onEachFeature: pop_69kV_16,
+            style: style_69kV_16_0,
         });
-        bounds_group.addLayer(layer_69kV_14);
-        map.addLayer(layer_69kV_14);
-        function pop_230kV_15(feature, layer) {
+        bounds_group.addLayer(layer_69kV_16);
+        map.addLayer(layer_69kV_16);
+        function pop_230kV_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Nome" colspan="2"><strong>Nome</strong><br />' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1853,9 +1909,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_230kV_15_0() {
+        function style_230kV_17_0() {
             return {
-                pane: 'pane_230kV_15',
+                pane: 'pane_230kV_17',
                 opacity: 1,
                 color: 'rgba(41,78,247,1.0)',
                 dashArray: '',
@@ -1866,21 +1922,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_230kV_15');
-        map.getPane('pane_230kV_15').style.zIndex = 415;
-        map.getPane('pane_230kV_15').style['mix-blend-mode'] = 'normal';
-        var layer_230kV_15 = new L.geoJson(json_230kV_15, {
+        map.createPane('pane_230kV_17');
+        map.getPane('pane_230kV_17').style.zIndex = 417;
+        map.getPane('pane_230kV_17').style['mix-blend-mode'] = 'normal';
+        var layer_230kV_17 = new L.geoJson(json_230kV_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_230kV_15',
-            layerName: 'layer_230kV_15',
-            pane: 'pane_230kV_15',
-            onEachFeature: pop_230kV_15,
-            style: style_230kV_15_0,
+            dataVar: 'json_230kV_17',
+            layerName: 'layer_230kV_17',
+            pane: 'pane_230kV_17',
+            onEachFeature: pop_230kV_17,
+            style: style_230kV_17_0,
         });
-        bounds_group.addLayer(layer_230kV_15);
-        map.addLayer(layer_230kV_15);
-        function pop_500kV_16(feature, layer) {
+        bounds_group.addLayer(layer_230kV_17);
+        map.addLayer(layer_230kV_17);
+        function pop_500kV_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Nome" colspan="2"><strong>Nome</strong><br />' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1899,9 +1955,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_500kV_16_0() {
+        function style_500kV_18_0() {
             return {
-                pane: 'pane_500kV_16',
+                pane: 'pane_500kV_18',
                 opacity: 1,
                 color: 'rgba(230,23,29,1.0)',
                 dashArray: '',
@@ -1912,21 +1968,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_500kV_16');
-        map.getPane('pane_500kV_16').style.zIndex = 416;
-        map.getPane('pane_500kV_16').style['mix-blend-mode'] = 'normal';
-        var layer_500kV_16 = new L.geoJson(json_500kV_16, {
+        map.createPane('pane_500kV_18');
+        map.getPane('pane_500kV_18').style.zIndex = 418;
+        map.getPane('pane_500kV_18').style['mix-blend-mode'] = 'normal';
+        var layer_500kV_18 = new L.geoJson(json_500kV_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_500kV_16',
-            layerName: 'layer_500kV_16',
-            pane: 'pane_500kV_16',
-            onEachFeature: pop_500kV_16,
-            style: style_500kV_16_0,
+            dataVar: 'json_500kV_18',
+            layerName: 'layer_500kV_18',
+            pane: 'pane_500kV_18',
+            onEachFeature: pop_500kV_18,
+            style: style_500kV_18_0,
         });
-        bounds_group.addLayer(layer_500kV_16);
-        map.addLayer(layer_500kV_16);
-        function pop_DGC_17(feature, layer) {
+        bounds_group.addLayer(layer_500kV_18);
+        map.addLayer(layer_500kV_18);
+        function pop_DGC_19(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2158,10 +2214,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DGC_17_0(feature) {
+        function style_DGC_19_0(feature) {
             if (feature.properties['DGC'] >= 0.400000 && feature.properties['DGC'] <= 0.500000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2176,7 +2232,7 @@
             }
             if (feature.properties['DGC'] >= 0.500000 && feature.properties['DGC'] <= 0.600000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2191,7 +2247,7 @@
             }
             if (feature.properties['DGC'] >= 0.600000 && feature.properties['DGC'] <= 0.700000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2206,7 +2262,7 @@
             }
             if (feature.properties['DGC'] >= 0.700000 && feature.properties['DGC'] <= 0.800000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2221,7 +2277,7 @@
             }
             if (feature.properties['DGC'] >= 0.800000 && feature.properties['DGC'] <= 0.900000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2236,7 +2292,7 @@
             }
             if (feature.properties['DGC'] >= 0.900000 && feature.properties['DGC'] <= 1.000000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2251,7 +2307,7 @@
             }
             if (feature.properties['DGC'] >= 1.000000 && feature.properties['DGC'] <= 1.100000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2266,7 +2322,7 @@
             }
             if (feature.properties['DGC'] >= 1.100000 && feature.properties['DGC'] <= 1.200000 ) {
                 return {
-                pane: 'pane_DGC_17',
+                pane: 'pane_DGC_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2280,20 +2336,20 @@
             }
             }
         }
-        map.createPane('pane_DGC_17');
-        map.getPane('pane_DGC_17').style.zIndex = 417;
-        map.getPane('pane_DGC_17').style['mix-blend-mode'] = 'normal';
-        var layer_DGC_17 = new L.geoJson(json_DGC_17, {
+        map.createPane('pane_DGC_19');
+        map.getPane('pane_DGC_19').style.zIndex = 419;
+        map.getPane('pane_DGC_19').style['mix-blend-mode'] = 'normal';
+        var layer_DGC_19 = new L.geoJson(json_DGC_19, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DGC_17',
-            layerName: 'layer_DGC_17',
-            pane: 'pane_DGC_17',
-            onEachFeature: pop_DGC_17,
-            style: style_DGC_17_0,
+            dataVar: 'json_DGC_19',
+            layerName: 'layer_DGC_19',
+            pane: 'pane_DGC_19',
+            onEachFeature: pop_DGC_19,
+            style: style_DGC_19_0,
         });
-        bounds_group.addLayer(layer_DGC_17);
-        function pop_DECapuradoanual_18(feature, layer) {
+        bounds_group.addLayer(layer_DGC_19);
+        function pop_DECapuradoanual_20(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2525,10 +2581,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DECapuradoanual_18_0(feature) {
-            if (feature.properties['DECApurado'] >= 2.300000 && feature.properties['DECApurado'] <= 5.000000 ) {
+        function style_DECapuradoanual_20_0(feature) {
+            if (feature.properties['DECApurado'] >= 2.371180 && feature.properties['DECApurado'] <= 4.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_18',
+                pane: 'pane_DECapuradoanual_20',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2541,9 +2597,9 @@
                 interactive: true,
             }
             }
-            if (feature.properties['DECApurado'] >= 5.000000 && feature.properties['DECApurado'] <= 10.000000 ) {
+            if (feature.properties['DECApurado'] >= 4.000000 && feature.properties['DECApurado'] <= 6.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_18',
+                pane: 'pane_DECapuradoanual_20',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2552,13 +2608,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,191,191,1.0)',
+                fillColor: 'rgba(240,230,231,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['DECApurado'] >= 10.000000 && feature.properties['DECApurado'] <= 15.000000 ) {
+            if (feature.properties['DECApurado'] >= 6.000000 && feature.properties['DECApurado'] <= 8.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_18',
+                pane: 'pane_DECapuradoanual_20',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2567,13 +2623,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,128,128,1.0)',
+                fillColor: 'rgba(225,204,207,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['DECApurado'] >= 15.000000 && feature.properties['DECApurado'] <= 20.000000 ) {
+            if (feature.properties['DECApurado'] >= 8.000000 && feature.properties['DECApurado'] <= 10.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_18',
+                pane: 'pane_DECapuradoanual_20',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2582,13 +2638,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,64,64,1.0)',
+                fillColor: 'rgba(209,179,182,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['DECApurado'] >= 20.000000 && feature.properties['DECApurado'] <= 22.900000 ) {
+            if (feature.properties['DECApurado'] >= 10.000000 && feature.properties['DECApurado'] <= 12.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_18',
+                pane: 'pane_DECapuradoanual_20',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2597,25 +2653,115 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,0,0,1.0)',
+                fillColor: 'rgba(194,153,158,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DECApurado'] >= 12.000000 && feature.properties['DECApurado'] <= 14.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_20',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(179,128,134,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DECApurado'] >= 14.000000 && feature.properties['DECApurado'] <= 16.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_20',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(164,102,110,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DECApurado'] >= 16.000000 && feature.properties['DECApurado'] <= 18.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_20',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(149,77,86,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DECApurado'] >= 18.000000 && feature.properties['DECApurado'] <= 20.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_20',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,51,61,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DECApurado'] >= 20.000000 && feature.properties['DECApurado'] <= 22.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_20',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(118,25,37,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DECApurado'] >= 22.000000 && feature.properties['DECApurado'] <= 22.829167 ) {
+                return {
+                pane: 'pane_DECapuradoanual_20',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,1.0)',
                 interactive: true,
             }
             }
         }
-        map.createPane('pane_DECapuradoanual_18');
-        map.getPane('pane_DECapuradoanual_18').style.zIndex = 418;
-        map.getPane('pane_DECapuradoanual_18').style['mix-blend-mode'] = 'normal';
-        var layer_DECapuradoanual_18 = new L.geoJson(json_DECapuradoanual_18, {
+        map.createPane('pane_DECapuradoanual_20');
+        map.getPane('pane_DECapuradoanual_20').style.zIndex = 420;
+        map.getPane('pane_DECapuradoanual_20').style['mix-blend-mode'] = 'normal';
+        var layer_DECapuradoanual_20 = new L.geoJson(json_DECapuradoanual_20, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DECapuradoanual_18',
-            layerName: 'layer_DECapuradoanual_18',
-            pane: 'pane_DECapuradoanual_18',
-            onEachFeature: pop_DECapuradoanual_18,
-            style: style_DECapuradoanual_18_0,
+            dataVar: 'json_DECapuradoanual_20',
+            layerName: 'layer_DECapuradoanual_20',
+            pane: 'pane_DECapuradoanual_20',
+            onEachFeature: pop_DECapuradoanual_20,
+            style: style_DECapuradoanual_20_0,
         });
-        bounds_group.addLayer(layer_DECapuradoanual_18);
-        function pop_DEClimiteanual_19(feature, layer) {
+        bounds_group.addLayer(layer_DECapuradoanual_20);
+        function pop_DEClimiteanual_21(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2847,10 +2993,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DEClimiteanual_19_0(feature) {
+        function style_DEClimiteanual_21_0(feature) {
             if (feature.properties['DECLimiteA'] >= 5.000000 && feature.properties['DECLimiteA'] <= 6.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2865,7 +3011,7 @@
             }
             if (feature.properties['DECLimiteA'] >= 6.000000 && feature.properties['DECLimiteA'] <= 8.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2880,7 +3026,7 @@
             }
             if (feature.properties['DECLimiteA'] >= 8.000000 && feature.properties['DECLimiteA'] <= 10.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2895,7 +3041,7 @@
             }
             if (feature.properties['DECLimiteA'] >= 10.000000 && feature.properties['DECLimiteA'] <= 12.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2910,7 +3056,7 @@
             }
             if (feature.properties['DECLimiteA'] >= 12.000000 && feature.properties['DECLimiteA'] <= 14.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2925,7 +3071,7 @@
             }
             if (feature.properties['DECLimiteA'] >= 14.000000 && feature.properties['DECLimiteA'] <= 16.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2940,7 +3086,7 @@
             }
             if (feature.properties['DECLimiteA'] >= 16.000000 && feature.properties['DECLimiteA'] <= 18.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2955,7 +3101,7 @@
             }
             if (feature.properties['DECLimiteA'] >= 18.000000 && feature.properties['DECLimiteA'] <= 19.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_19',
+                pane: 'pane_DEClimiteanual_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2969,20 +3115,20 @@
             }
             }
         }
-        map.createPane('pane_DEClimiteanual_19');
-        map.getPane('pane_DEClimiteanual_19').style.zIndex = 419;
-        map.getPane('pane_DEClimiteanual_19').style['mix-blend-mode'] = 'normal';
-        var layer_DEClimiteanual_19 = new L.geoJson(json_DEClimiteanual_19, {
+        map.createPane('pane_DEClimiteanual_21');
+        map.getPane('pane_DEClimiteanual_21').style.zIndex = 421;
+        map.getPane('pane_DEClimiteanual_21').style['mix-blend-mode'] = 'normal';
+        var layer_DEClimiteanual_21 = new L.geoJson(json_DEClimiteanual_21, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DEClimiteanual_19',
-            layerName: 'layer_DEClimiteanual_19',
-            pane: 'pane_DEClimiteanual_19',
-            onEachFeature: pop_DEClimiteanual_19,
-            style: style_DEClimiteanual_19_0,
+            dataVar: 'json_DEClimiteanual_21',
+            layerName: 'layer_DEClimiteanual_21',
+            pane: 'pane_DEClimiteanual_21',
+            onEachFeature: pop_DEClimiteanual_21,
+            style: style_DEClimiteanual_21_0,
         });
-        bounds_group.addLayer(layer_DEClimiteanual_19);
-        function pop_FECapuradoanual_20(feature, layer) {
+        bounds_group.addLayer(layer_DEClimiteanual_21);
+        function pop_FECapuradoanual_22(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -3214,10 +3360,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FECapuradoanual_20_0(feature) {
+        function style_FECapuradoanual_22_0(feature) {
             if (feature.properties['FECApurado'] >= 1.500000 && feature.properties['FECApurado'] <= 2.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_20',
+                pane: 'pane_FECapuradoanual_22',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3232,7 +3378,7 @@
             }
             if (feature.properties['FECApurado'] >= 2.000000 && feature.properties['FECApurado'] <= 4.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_20',
+                pane: 'pane_FECapuradoanual_22',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3247,7 +3393,7 @@
             }
             if (feature.properties['FECApurado'] >= 4.000000 && feature.properties['FECApurado'] <= 6.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_20',
+                pane: 'pane_FECapuradoanual_22',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3262,7 +3408,7 @@
             }
             if (feature.properties['FECApurado'] >= 6.000000 && feature.properties['FECApurado'] <= 8.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_20',
+                pane: 'pane_FECapuradoanual_22',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3277,7 +3423,7 @@
             }
             if (feature.properties['FECApurado'] >= 8.000000 && feature.properties['FECApurado'] <= 10.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_20',
+                pane: 'pane_FECapuradoanual_22',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3292,7 +3438,7 @@
             }
             if (feature.properties['FECApurado'] >= 10.000000 && feature.properties['FECApurado'] <= 10.500000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_20',
+                pane: 'pane_FECapuradoanual_22',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3306,20 +3452,20 @@
             }
             }
         }
-        map.createPane('pane_FECapuradoanual_20');
-        map.getPane('pane_FECapuradoanual_20').style.zIndex = 420;
-        map.getPane('pane_FECapuradoanual_20').style['mix-blend-mode'] = 'normal';
-        var layer_FECapuradoanual_20 = new L.geoJson(json_FECapuradoanual_20, {
+        map.createPane('pane_FECapuradoanual_22');
+        map.getPane('pane_FECapuradoanual_22').style.zIndex = 422;
+        map.getPane('pane_FECapuradoanual_22').style['mix-blend-mode'] = 'normal';
+        var layer_FECapuradoanual_22 = new L.geoJson(json_FECapuradoanual_22, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FECapuradoanual_20',
-            layerName: 'layer_FECapuradoanual_20',
-            pane: 'pane_FECapuradoanual_20',
-            onEachFeature: pop_FECapuradoanual_20,
-            style: style_FECapuradoanual_20_0,
+            dataVar: 'json_FECapuradoanual_22',
+            layerName: 'layer_FECapuradoanual_22',
+            pane: 'pane_FECapuradoanual_22',
+            onEachFeature: pop_FECapuradoanual_22,
+            style: style_FECapuradoanual_22_0,
         });
-        bounds_group.addLayer(layer_FECapuradoanual_20);
-        function pop_FEClimiteanual_21(feature, layer) {
+        bounds_group.addLayer(layer_FECapuradoanual_22);
+        function pop_FEClimiteanual_23(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -3551,10 +3697,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FEClimiteanual_21_0(feature) {
+        function style_FEClimiteanual_23_0(feature) {
             if (feature.properties['FECLimiteA'] >= 4.000000 && feature.properties['FECLimiteA'] <= 5.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_21',
+                pane: 'pane_FEClimiteanual_23',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3569,7 +3715,7 @@
             }
             if (feature.properties['FECLimiteA'] >= 5.000000 && feature.properties['FECLimiteA'] <= 6.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_21',
+                pane: 'pane_FEClimiteanual_23',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3584,7 +3730,7 @@
             }
             if (feature.properties['FECLimiteA'] >= 6.000000 && feature.properties['FECLimiteA'] <= 7.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_21',
+                pane: 'pane_FEClimiteanual_23',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3599,7 +3745,7 @@
             }
             if (feature.properties['FECLimiteA'] >= 7.000000 && feature.properties['FECLimiteA'] <= 8.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_21',
+                pane: 'pane_FEClimiteanual_23',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3614,7 +3760,7 @@
             }
             if (feature.properties['FECLimiteA'] >= 8.000000 && feature.properties['FECLimiteA'] <= 9.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_21',
+                pane: 'pane_FEClimiteanual_23',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3628,20 +3774,20 @@
             }
             }
         }
-        map.createPane('pane_FEClimiteanual_21');
-        map.getPane('pane_FEClimiteanual_21').style.zIndex = 421;
-        map.getPane('pane_FEClimiteanual_21').style['mix-blend-mode'] = 'normal';
-        var layer_FEClimiteanual_21 = new L.geoJson(json_FEClimiteanual_21, {
+        map.createPane('pane_FEClimiteanual_23');
+        map.getPane('pane_FEClimiteanual_23').style.zIndex = 423;
+        map.getPane('pane_FEClimiteanual_23').style['mix-blend-mode'] = 'normal';
+        var layer_FEClimiteanual_23 = new L.geoJson(json_FEClimiteanual_23, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FEClimiteanual_21',
-            layerName: 'layer_FEClimiteanual_21',
-            pane: 'pane_FEClimiteanual_21',
-            onEachFeature: pop_FEClimiteanual_21,
-            style: style_FEClimiteanual_21_0,
+            dataVar: 'json_FEClimiteanual_23',
+            layerName: 'layer_FEClimiteanual_23',
+            pane: 'pane_FEClimiteanual_23',
+            onEachFeature: pop_FEClimiteanual_23,
+            style: style_FEClimiteanual_23_0,
         });
-        bounds_group.addLayer(layer_FEClimiteanual_21);
-        function pop_Gasodutos_de_distribuio_22(feature, layer) {
+        bounds_group.addLayer(layer_FEClimiteanual_23);
+        function pop_Gasodutos_de_distribuio_24(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Distrib'] !== null ? autolinker.link(String(feature.properties['Distrib']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -3675,9 +3821,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Gasodutos_de_distribuio_22_0() {
+        function style_Gasodutos_de_distribuio_24_0() {
             return {
-                pane: 'pane_Gasodutos_de_distribuio_22',
+                pane: 'pane_Gasodutos_de_distribuio_24',
                 opacity: 1,
                 color: 'rgba(243,143,10,1.0)',
                 dashArray: '',
@@ -3688,21 +3834,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Gasodutos_de_distribuio_22');
-        map.getPane('pane_Gasodutos_de_distribuio_22').style.zIndex = 422;
-        map.getPane('pane_Gasodutos_de_distribuio_22').style['mix-blend-mode'] = 'normal';
-        var layer_Gasodutos_de_distribuio_22 = new L.geoJson(json_Gasodutos_de_distribuio_22, {
+        map.createPane('pane_Gasodutos_de_distribuio_24');
+        map.getPane('pane_Gasodutos_de_distribuio_24').style.zIndex = 424;
+        map.getPane('pane_Gasodutos_de_distribuio_24').style['mix-blend-mode'] = 'normal';
+        var layer_Gasodutos_de_distribuio_24 = new L.geoJson(json_Gasodutos_de_distribuio_24, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Gasodutos_de_distribuio_22',
-            layerName: 'layer_Gasodutos_de_distribuio_22',
-            pane: 'pane_Gasodutos_de_distribuio_22',
-            onEachFeature: pop_Gasodutos_de_distribuio_22,
-            style: style_Gasodutos_de_distribuio_22_0,
+            dataVar: 'json_Gasodutos_de_distribuio_24',
+            layerName: 'layer_Gasodutos_de_distribuio_24',
+            pane: 'pane_Gasodutos_de_distribuio_24',
+            onEachFeature: pop_Gasodutos_de_distribuio_24,
+            style: style_Gasodutos_de_distribuio_24_0,
         });
-        bounds_group.addLayer(layer_Gasodutos_de_distribuio_22);
-        map.addLayer(layer_Gasodutos_de_distribuio_22);
-        function pop_Gasodutos_de_transporte_23(feature, layer) {
+        bounds_group.addLayer(layer_Gasodutos_de_distribuio_24);
+        map.addLayer(layer_Gasodutos_de_distribuio_24);
+        function pop_Gasodutos_de_transporte_25(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -3757,9 +3903,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Gasodutos_de_transporte_23_0() {
+        function style_Gasodutos_de_transporte_25_0() {
             return {
-                pane: 'pane_Gasodutos_de_transporte_23',
+                pane: 'pane_Gasodutos_de_transporte_25',
                 opacity: 1,
                 color: 'rgba(164,113,88,1.0)',
                 dashArray: '',
@@ -3770,21 +3916,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Gasodutos_de_transporte_23');
-        map.getPane('pane_Gasodutos_de_transporte_23').style.zIndex = 423;
-        map.getPane('pane_Gasodutos_de_transporte_23').style['mix-blend-mode'] = 'normal';
-        var layer_Gasodutos_de_transporte_23 = new L.geoJson(json_Gasodutos_de_transporte_23, {
+        map.createPane('pane_Gasodutos_de_transporte_25');
+        map.getPane('pane_Gasodutos_de_transporte_25').style.zIndex = 425;
+        map.getPane('pane_Gasodutos_de_transporte_25').style['mix-blend-mode'] = 'normal';
+        var layer_Gasodutos_de_transporte_25 = new L.geoJson(json_Gasodutos_de_transporte_25, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Gasodutos_de_transporte_23',
-            layerName: 'layer_Gasodutos_de_transporte_23',
-            pane: 'pane_Gasodutos_de_transporte_23',
-            onEachFeature: pop_Gasodutos_de_transporte_23,
-            style: style_Gasodutos_de_transporte_23_0,
+            dataVar: 'json_Gasodutos_de_transporte_25',
+            layerName: 'layer_Gasodutos_de_transporte_25',
+            pane: 'pane_Gasodutos_de_transporte_25',
+            onEachFeature: pop_Gasodutos_de_transporte_25,
+            style: style_Gasodutos_de_transporte_25_0,
         });
-        bounds_group.addLayer(layer_Gasodutos_de_transporte_23);
-        map.addLayer(layer_Gasodutos_de_transporte_23);
-        function pop_Dutos_de_escoamento_24(feature, layer) {
+        bounds_group.addLayer(layer_Gasodutos_de_transporte_25);
+        map.addLayer(layer_Gasodutos_de_transporte_25);
+        function pop_Dutos_de_escoamento_26(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['DUTO_ID'] !== null ? autolinker.link(String(feature.properties['DUTO_ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -3845,11 +3991,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Dutos_de_escoamento_24_0(feature) {
+        function style_Dutos_de_escoamento_26_0(feature) {
             switch(String(feature.properties['Categoria'])) {
                 case 'Existente':
                     return {
-                pane: 'pane_Dutos_de_escoamento_24',
+                pane: 'pane_Dutos_de_escoamento_26',
                 opacity: 1,
                 color: 'rgba(13,67,248,1.0)',
                 dashArray: '',
@@ -3862,7 +4008,7 @@
                     break;
                 case 'Indicativo':
                     return {
-                pane: 'pane_Dutos_de_escoamento_24',
+                pane: 'pane_Dutos_de_escoamento_26',
                 opacity: 1,
                 color: 'rgba(109,109,109,1.0)',
                 dashArray: '',
@@ -3875,21 +4021,21 @@
                     break;
             }
         }
-        map.createPane('pane_Dutos_de_escoamento_24');
-        map.getPane('pane_Dutos_de_escoamento_24').style.zIndex = 424;
-        map.getPane('pane_Dutos_de_escoamento_24').style['mix-blend-mode'] = 'normal';
-        var layer_Dutos_de_escoamento_24 = new L.geoJson(json_Dutos_de_escoamento_24, {
+        map.createPane('pane_Dutos_de_escoamento_26');
+        map.getPane('pane_Dutos_de_escoamento_26').style.zIndex = 426;
+        map.getPane('pane_Dutos_de_escoamento_26').style['mix-blend-mode'] = 'normal';
+        var layer_Dutos_de_escoamento_26 = new L.geoJson(json_Dutos_de_escoamento_26, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Dutos_de_escoamento_24',
-            layerName: 'layer_Dutos_de_escoamento_24',
-            pane: 'pane_Dutos_de_escoamento_24',
-            onEachFeature: pop_Dutos_de_escoamento_24,
-            style: style_Dutos_de_escoamento_24_0,
+            dataVar: 'json_Dutos_de_escoamento_26',
+            layerName: 'layer_Dutos_de_escoamento_26',
+            pane: 'pane_Dutos_de_escoamento_26',
+            onEachFeature: pop_Dutos_de_escoamento_26,
+            style: style_Dutos_de_escoamento_26_0,
         });
-        bounds_group.addLayer(layer_Dutos_de_escoamento_24);
-        map.addLayer(layer_Dutos_de_escoamento_24);
-        function pop_Pontos_de_entrega_de_gs_natural_25(feature, layer) {
+        bounds_group.addLayer(layer_Dutos_de_escoamento_26);
+        map.addLayer(layer_Dutos_de_escoamento_26);
+        function pop_Pontos_de_entrega_de_gs_natural_27(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -3920,9 +4066,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Pontos_de_entrega_de_gs_natural_25_0() {
+        function style_Pontos_de_entrega_de_gs_natural_27_0() {
             return {
-                pane: 'pane_Pontos_de_entrega_de_gs_natural_25',
+                pane: 'pane_Pontos_de_entrega_de_gs_natural_27',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -3936,27 +4082,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Pontos_de_entrega_de_gs_natural_25');
-        map.getPane('pane_Pontos_de_entrega_de_gs_natural_25').style.zIndex = 425;
-        map.getPane('pane_Pontos_de_entrega_de_gs_natural_25').style['mix-blend-mode'] = 'normal';
-        var layer_Pontos_de_entrega_de_gs_natural_25 = new L.geoJson(json_Pontos_de_entrega_de_gs_natural_25, {
+        map.createPane('pane_Pontos_de_entrega_de_gs_natural_27');
+        map.getPane('pane_Pontos_de_entrega_de_gs_natural_27').style.zIndex = 427;
+        map.getPane('pane_Pontos_de_entrega_de_gs_natural_27').style['mix-blend-mode'] = 'normal';
+        var layer_Pontos_de_entrega_de_gs_natural_27 = new L.geoJson(json_Pontos_de_entrega_de_gs_natural_27, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Pontos_de_entrega_de_gs_natural_25',
-            layerName: 'layer_Pontos_de_entrega_de_gs_natural_25',
-            pane: 'pane_Pontos_de_entrega_de_gs_natural_25',
-            onEachFeature: pop_Pontos_de_entrega_de_gs_natural_25,
+            dataVar: 'json_Pontos_de_entrega_de_gs_natural_27',
+            layerName: 'layer_Pontos_de_entrega_de_gs_natural_27',
+            pane: 'pane_Pontos_de_entrega_de_gs_natural_27',
+            onEachFeature: pop_Pontos_de_entrega_de_gs_natural_27,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Pontos_de_entrega_de_gs_natural_25_0(feature));
+                return L.circleMarker(latlng, style_Pontos_de_entrega_de_gs_natural_27_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Pontos_de_entrega_de_gs_natural_25);
-        map.addLayer(layer_Pontos_de_entrega_de_gs_natural_25);
-        function pop_Polos_de_processamento_de_gs_natural_26(feature, layer) {
+        bounds_group.addLayer(layer_Pontos_de_entrega_de_gs_natural_27);
+        map.addLayer(layer_Pontos_de_entrega_de_gs_natural_27);
+        function pop_Polos_de_processamento_de_gs_natural_28(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -3993,11 +4139,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Polos_de_processamento_de_gs_natural_26_0(feature) {
+        function style_Polos_de_processamento_de_gs_natural_28_0(feature) {
             switch(String(feature.properties['Classifica'])) {
                 case 'Existente':
                     return {
-                pane: 'pane_Polos_de_processamento_de_gs_natural_26',
+                pane: 'pane_Polos_de_processamento_de_gs_natural_28',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -4013,7 +4159,7 @@
                     break;
                 case 'Indicativo':
                     return {
-                pane: 'pane_Polos_de_processamento_de_gs_natural_26',
+                pane: 'pane_Polos_de_processamento_de_gs_natural_28',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -4029,27 +4175,27 @@
                     break;
             }
         }
-        map.createPane('pane_Polos_de_processamento_de_gs_natural_26');
-        map.getPane('pane_Polos_de_processamento_de_gs_natural_26').style.zIndex = 426;
-        map.getPane('pane_Polos_de_processamento_de_gs_natural_26').style['mix-blend-mode'] = 'normal';
-        var layer_Polos_de_processamento_de_gs_natural_26 = new L.geoJson(json_Polos_de_processamento_de_gs_natural_26, {
+        map.createPane('pane_Polos_de_processamento_de_gs_natural_28');
+        map.getPane('pane_Polos_de_processamento_de_gs_natural_28').style.zIndex = 428;
+        map.getPane('pane_Polos_de_processamento_de_gs_natural_28').style['mix-blend-mode'] = 'normal';
+        var layer_Polos_de_processamento_de_gs_natural_28 = new L.geoJson(json_Polos_de_processamento_de_gs_natural_28, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Polos_de_processamento_de_gs_natural_26',
-            layerName: 'layer_Polos_de_processamento_de_gs_natural_26',
-            pane: 'pane_Polos_de_processamento_de_gs_natural_26',
-            onEachFeature: pop_Polos_de_processamento_de_gs_natural_26,
+            dataVar: 'json_Polos_de_processamento_de_gs_natural_28',
+            layerName: 'layer_Polos_de_processamento_de_gs_natural_28',
+            pane: 'pane_Polos_de_processamento_de_gs_natural_28',
+            onEachFeature: pop_Polos_de_processamento_de_gs_natural_28,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Polos_de_processamento_de_gs_natural_26_0(feature));
+                return L.circleMarker(latlng, style_Polos_de_processamento_de_gs_natural_28_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Polos_de_processamento_de_gs_natural_26);
-        map.addLayer(layer_Polos_de_processamento_de_gs_natural_26);
-        function pop_Estaes_de_compresso_27(feature, layer) {
+        bounds_group.addLayer(layer_Polos_de_processamento_de_gs_natural_28);
+        map.addLayer(layer_Polos_de_processamento_de_gs_natural_28);
+        function pop_Estaes_de_compresso_29(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -4080,9 +4226,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Estaes_de_compresso_27_0() {
+        function style_Estaes_de_compresso_29_0() {
             return {
-                pane: 'pane_Estaes_de_compresso_27',
+                pane: 'pane_Estaes_de_compresso_29',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -4096,27 +4242,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Estaes_de_compresso_27');
-        map.getPane('pane_Estaes_de_compresso_27').style.zIndex = 427;
-        map.getPane('pane_Estaes_de_compresso_27').style['mix-blend-mode'] = 'normal';
-        var layer_Estaes_de_compresso_27 = new L.geoJson(json_Estaes_de_compresso_27, {
+        map.createPane('pane_Estaes_de_compresso_29');
+        map.getPane('pane_Estaes_de_compresso_29').style.zIndex = 429;
+        map.getPane('pane_Estaes_de_compresso_29').style['mix-blend-mode'] = 'normal';
+        var layer_Estaes_de_compresso_29 = new L.geoJson(json_Estaes_de_compresso_29, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Estaes_de_compresso_27',
-            layerName: 'layer_Estaes_de_compresso_27',
-            pane: 'pane_Estaes_de_compresso_27',
-            onEachFeature: pop_Estaes_de_compresso_27,
+            dataVar: 'json_Estaes_de_compresso_29',
+            layerName: 'layer_Estaes_de_compresso_29',
+            pane: 'pane_Estaes_de_compresso_29',
+            onEachFeature: pop_Estaes_de_compresso_29,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Estaes_de_compresso_27_0(feature));
+                return L.circleMarker(latlng, style_Estaes_de_compresso_29_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Estaes_de_compresso_27);
-        map.addLayer(layer_Estaes_de_compresso_27);
-        function pop_Terminais_GNL_28(feature, layer) {
+        bounds_group.addLayer(layer_Estaes_de_compresso_29);
+        map.addLayer(layer_Estaes_de_compresso_29);
+        function pop_Terminais_GNL_30(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -4159,9 +4305,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Terminais_GNL_28_0() {
+        function style_Terminais_GNL_30_0() {
             return {
-                pane: 'pane_Terminais_GNL_28',
+                pane: 'pane_Terminais_GNL_30',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -4175,55 +4321,57 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Terminais_GNL_28');
-        map.getPane('pane_Terminais_GNL_28').style.zIndex = 428;
-        map.getPane('pane_Terminais_GNL_28').style['mix-blend-mode'] = 'normal';
-        var layer_Terminais_GNL_28 = new L.geoJson(json_Terminais_GNL_28, {
+        map.createPane('pane_Terminais_GNL_30');
+        map.getPane('pane_Terminais_GNL_30').style.zIndex = 430;
+        map.getPane('pane_Terminais_GNL_30').style['mix-blend-mode'] = 'normal';
+        var layer_Terminais_GNL_30 = new L.geoJson(json_Terminais_GNL_30, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Terminais_GNL_28',
-            layerName: 'layer_Terminais_GNL_28',
-            pane: 'pane_Terminais_GNL_28',
-            onEachFeature: pop_Terminais_GNL_28,
+            dataVar: 'json_Terminais_GNL_30',
+            layerName: 'layer_Terminais_GNL_30',
+            pane: 'pane_Terminais_GNL_30',
+            onEachFeature: pop_Terminais_GNL_30,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Terminais_GNL_28_0(feature));
+                return L.circleMarker(latlng, style_Terminais_GNL_30_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Terminais_GNL_28);
-        map.addLayer(layer_Terminais_GNL_28);
+        bounds_group.addLayer(layer_Terminais_GNL_30);
+        map.addLayer(layer_Terminais_GNL_30);
         var overlaysTree = [
         {label: '<b>Infraestrutura de Gás Natural</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Terminais_GNL_28.png" /> Terminais_GNL', layer: layer_Terminais_GNL_28},
-            {label: '<img src="legend/Estaes_de_compresso_27.png" /> Estações_de_compressão', layer: layer_Estaes_de_compresso_27},
-            {label: 'Polos_de_processamento_de_gás_natural<br /><table><tr><td style="text-align: center;"><img src="legend/Polos_de_processamento_de_gs_natural_26_Existente0.png" /></td><td>Existente</td></tr><tr><td style="text-align: center;"><img src="legend/Polos_de_processamento_de_gs_natural_26_Indicativo1.png" /></td><td>Indicativo</td></tr></table>', layer: layer_Polos_de_processamento_de_gs_natural_26},
-            {label: '<img src="legend/Pontos_de_entrega_de_gs_natural_25.png" /> Pontos_de_entrega_de_gás_natural', layer: layer_Pontos_de_entrega_de_gs_natural_25},
-            {label: 'Dutos_de_escoamento<br /><table><tr><td style="text-align: center;"><img src="legend/Dutos_de_escoamento_24_Existente0.png" /></td><td>Existente</td></tr><tr><td style="text-align: center;"><img src="legend/Dutos_de_escoamento_24_Indicativo1.png" /></td><td>Indicativo</td></tr></table>', layer: layer_Dutos_de_escoamento_24},
-            {label: '<img src="legend/Gasodutos_de_transporte_23.png" /> Gasodutos_de_transporte', layer: layer_Gasodutos_de_transporte_23},
-            {label: '<img src="legend/Gasodutos_de_distribuio_22.png" /> Gasodutos_de_distribuição', layer: layer_Gasodutos_de_distribuio_22},]},
+            {label: '<img src="legend/Terminais_GNL_30.png" /> Terminais_GNL', layer: layer_Terminais_GNL_30},
+            {label: '<img src="legend/Estaes_de_compresso_29.png" /> Estações_de_compressão', layer: layer_Estaes_de_compresso_29},
+            {label: 'Polos_de_processamento_de_gás_natural<br /><table><tr><td style="text-align: center;"><img src="legend/Polos_de_processamento_de_gs_natural_28_Existente0.png" /></td><td>Existente</td></tr><tr><td style="text-align: center;"><img src="legend/Polos_de_processamento_de_gs_natural_28_Indicativo1.png" /></td><td>Indicativo</td></tr></table>', layer: layer_Polos_de_processamento_de_gs_natural_28},
+            {label: '<img src="legend/Pontos_de_entrega_de_gs_natural_27.png" /> Pontos_de_entrega_de_gás_natural', layer: layer_Pontos_de_entrega_de_gs_natural_27},
+            {label: 'Dutos_de_escoamento<br /><table><tr><td style="text-align: center;"><img src="legend/Dutos_de_escoamento_26_Existente0.png" /></td><td>Existente</td></tr><tr><td style="text-align: center;"><img src="legend/Dutos_de_escoamento_26_Indicativo1.png" /></td><td>Indicativo</td></tr></table>', layer: layer_Dutos_de_escoamento_26},
+            {label: '<img src="legend/Gasodutos_de_transporte_25.png" /> Gasodutos_de_transporte', layer: layer_Gasodutos_de_transporte_25},
+            {label: '<img src="legend/Gasodutos_de_distribuio_24.png" /> Gasodutos_de_distribuição', layer: layer_Gasodutos_de_distribuio_24},]},
         {label: '<b>FEC, DEC e DGC</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'FEC limite anual<br /><table><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_21_40500.png" /></td><td>4,0 - 5,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_21_50601.png" /></td><td>5,0 - 6,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_21_60702.png" /></td><td>6,0 - 7,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_21_70803.png" /></td><td>7,0 - 8,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_21_80904.png" /></td><td>8,0 - 9,0</td></tr></table>', layer: layer_FEClimiteanual_21},
-            {label: 'FEC apurado anual<br /><table><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_20_1502000.png" /></td><td>1,50 - 2,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_20_2004001.png" /></td><td>2,00 - 4,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_20_4006002.png" /></td><td>4,00 - 6,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_20_6008003.png" /></td><td>6,00 - 8,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_20_80010004.png" /></td><td>8,00 - 10,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_20_100010505.png" /></td><td>10,00 - 10,50</td></tr></table>', layer: layer_FECapuradoanual_20},
-            {label: 'DEC limite anual<br /><table><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_50600.png" /></td><td>5,0 - 6,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_60801.png" /></td><td>6,0 - 8,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_801002.png" /></td><td>8,0 - 10,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_1001203.png" /></td><td>10,0 - 12,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_1201404.png" /></td><td>12,0 - 14,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_1401605.png" /></td><td>14,0 - 16,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_1601806.png" /></td><td>16,0 - 18,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_19_1801907.png" /></td><td>18,0 - 19,0</td></tr></table>', layer: layer_DEClimiteanual_19},
-            {label: 'DEC apurado anual<br /><table><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_18_23500.png" /></td><td>2,3 - 5,0</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_18_501001.png" /></td><td>5,0 - 10,0</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_18_1001502.png" /></td><td>10,0 - 15,0</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_18_1502003.png" /></td><td>15,0 - 20,0</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_18_2002294.png" /></td><td>20,0 - 22,9</td></tr></table>', layer: layer_DECapuradoanual_18},
-            {label: 'DGC<br /><table><tr><td style="text-align: center;"><img src="legend/DGC_17_040005000.png" /></td><td>0,400 - 0,500</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_17_050006001.png" /></td><td>0,500 - 0,600</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_17_060007002.png" /></td><td>0,600 - 0,700</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_17_070008003.png" /></td><td>0,700 - 0,800</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_17_080009004.png" /></td><td>0,800 - 0,900</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_17_090010005.png" /></td><td>0,900 - 1,000</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_17_100011006.png" /></td><td>1,000 - 1,100</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_17_110012007.png" /></td><td>1,100 - 1,200</td></tr></table>', layer: layer_DGC_17},]},
+            {label: 'FEC limite anual<br /><table><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_23_40500.png" /></td><td>4,0 - 5,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_23_50601.png" /></td><td>5,0 - 6,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_23_60702.png" /></td><td>6,0 - 7,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_23_70803.png" /></td><td>7,0 - 8,0</td></tr><tr><td style="text-align: center;"><img src="legend/FEClimiteanual_23_80904.png" /></td><td>8,0 - 9,0</td></tr></table>', layer: layer_FEClimiteanual_23},
+            {label: 'FEC apurado anual<br /><table><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_22_1502000.png" /></td><td>1,50 - 2,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_22_2004001.png" /></td><td>2,00 - 4,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_22_4006002.png" /></td><td>4,00 - 6,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_22_6008003.png" /></td><td>6,00 - 8,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_22_80010004.png" /></td><td>8,00 - 10,00</td></tr><tr><td style="text-align: center;"><img src="legend/FECapuradoanual_22_100010505.png" /></td><td>10,00 - 10,50</td></tr></table>', layer: layer_FECapuradoanual_22},
+            {label: 'DEC limite anual<br /><table><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_50600.png" /></td><td>5,0 - 6,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_60801.png" /></td><td>6,0 - 8,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_801002.png" /></td><td>8,0 - 10,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_1001203.png" /></td><td>10,0 - 12,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_1201404.png" /></td><td>12,0 - 14,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_1401605.png" /></td><td>14,0 - 16,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_1601806.png" /></td><td>16,0 - 18,0</td></tr><tr><td style="text-align: center;"><img src="legend/DEClimiteanual_21_1801907.png" /></td><td>18,0 - 19,0</td></tr></table>', layer: layer_DEClimiteanual_21},
+            {label: 'DEC apurado anual<br /><table><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_23740.png" /></td><td>2,37 - 4</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_461.png" /></td><td>4 - 6</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_682.png" /></td><td>6 - 8</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_8103.png" /></td><td>8 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_10124.png" /></td><td>10 - 12</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_12145.png" /></td><td>12 - 14</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_14166.png" /></td><td>14 - 16</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_16187.png" /></td><td>16 - 18</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_18208.png" /></td><td>18 - 20</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_20229.png" /></td><td>20 - 22</td></tr><tr><td style="text-align: center;"><img src="legend/DECapuradoanual_20_22228310.png" /></td><td>22 - 22,83</td></tr></table>', layer: layer_DECapuradoanual_20},
+            {label: 'DGC<br /><table><tr><td style="text-align: center;"><img src="legend/DGC_19_040005000.png" /></td><td>0,400 - 0,500</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_19_050006001.png" /></td><td>0,500 - 0,600</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_19_060007002.png" /></td><td>0,600 - 0,700</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_19_070008003.png" /></td><td>0,700 - 0,800</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_19_080009004.png" /></td><td>0,800 - 0,900</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_19_090010005.png" /></td><td>0,900 - 1,000</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_19_100011006.png" /></td><td>1,000 - 1,100</td></tr><tr><td style="text-align: center;"><img src="legend/DGC_19_110012007.png" /></td><td>1,100 - 1,200</td></tr></table>', layer: layer_DGC_19},]},
         {label: '<b>Linhas de Transmissão</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/500kV_16.png" /> 500 kV', layer: layer_500kV_16},
-            {label: '<img src="legend/230kV_15.png" /> 230 kV', layer: layer_230kV_15},
-            {label: '<img src="legend/69kV_14.png" /> 69 kV', layer: layer_69kV_14},
-            {label: '<img src="legend/138kV_13.png" /> 13,8 kV', layer: layer_138kV_13},]},
+            {label: '<img src="legend/500kV_18.png" /> 500 kV', layer: layer_500kV_18},
+            {label: '<img src="legend/230kV_17.png" /> 230 kV', layer: layer_230kV_17},
+            {label: '<img src="legend/69kV_16.png" /> 69 kV', layer: layer_69kV_16},
+            {label: '<img src="legend/138kV_15.png" /> 13,8 kV', layer: layer_138kV_15},]},
         {label: '<b>Subestações</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/SubestaesAlta_12.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_12},
-            {label: '<img src="legend/SubestaesMdia_11.png" /> Subestações (Média)', layer: layer_SubestaesMdia_11},]},
-            {label: 'Empreendimentos de geração - Construção não iniciada<br /><table><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoConstruonoiniciada_10_UFV0.png" /></td><td>UFV</td></tr></table>', layer: layer_EmpreendimentosdegeraoConstruonoiniciada_10},
-            {label: 'Empreendimentos de geração - Em operação<br /><table><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_9_EOL0.png" /></td><td>EOL</td></tr><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_9_UFV1.png" /></td><td>UFV</td></tr><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_9_UHE2.png" /></td><td>UHE</td></tr><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_9_UTE3.png" /></td><td>UTE</td></tr></table>', layer: layer_EmpreendimentosdegeraoEmoperao_9},
+            {label: '<img src="legend/SubestaesAlta_14.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_14},
+            {label: '<img src="legend/SubestaesMdia_13.png" /> Subestações (Média)', layer: layer_SubestaesMdia_13},]},
+            {label: 'Empreendimentos de geração - Construção não iniciada<br /><table><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoConstruonoiniciada_12_UFV0.png" /></td><td>UFV</td></tr></table>', layer: layer_EmpreendimentosdegeraoConstruonoiniciada_12},
+            {label: 'Empreendimentos de geração - Em operação<br /><table><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_11_EOL0.png" /></td><td>EOL</td></tr><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_11_UFV1.png" /></td><td>UFV</td></tr><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_11_UHE2.png" /></td><td>UHE</td></tr><tr><td style="text-align: center;"><img src="legend/EmpreendimentosdegeraoEmoperao_11_UTE3.png" /></td><td>UTE</td></tr></table>', layer: layer_EmpreendimentosdegeraoEmoperao_11},
         {label: '<b>Potencial eólico e solar</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_8},]},
-            {label: 'Territotio de Desenvolvimento<br /><table><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_AgresteCentralSergipano0.png" /></td><td>Agreste Central Sergipano</td></tr><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_AltoSertão1.png" /></td><td>Alto Sertão</td></tr><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_BaixoSãoFrancisco2.png" /></td><td>Baixo São Francisco</td></tr><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_CentroSul3.png" /></td><td>Centro Sul</td></tr><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_GrandeAracaju4.png" /></td><td>Grande Aracaju</td></tr><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_Leste5.png" /></td><td>Leste</td></tr><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_MédioSertão6.png" /></td><td>Médio Sertão</td></tr><tr><td style="text-align: center;"><img src="legend/TerritotiodeDesenvolvimento_7_SulSergipano7.png" /></td><td>Sul Sergipano</td></tr></table>', layer: layer_TerritotiodeDesenvolvimento_7},
-            {label: '<img src="legend/TerrasIndgenas_6.png" /> Terras Indígenas', layer: layer_TerrasIndgenas_6},
+            {label: "Irradiação Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiaoSolarAnualinclinado10Whmdia_10},
+            {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_9},]},
+            {label: 'Territórios de Desenvolvimento<br /><table><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_AgresteCentralSergipano0.png" /></td><td>Agreste Central Sergipano</td></tr><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_AltoSertão1.png" /></td><td>Alto Sertão</td></tr><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_BaixoSãoFrancisco2.png" /></td><td>Baixo São Francisco</td></tr><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_CentroSul3.png" /></td><td>Centro Sul</td></tr><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_GrandeAracaju4.png" /></td><td>Grande Aracaju</td></tr><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_Leste5.png" /></td><td>Leste</td></tr><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_MédioSertão6.png" /></td><td>Médio Sertão</td></tr><tr><td style="text-align: center;"><img src="legend/TerritriosdeDesenvolvimento_8_SulSergipano7.png" /></td><td>Sul Sergipano</td></tr></table>', layer: layer_TerritriosdeDesenvolvimento_8},
+            {label: '<img src="legend/TerrasIndgenas_7.png" /> Terras Indígenas', layer: layer_TerrasIndgenas_7},
+            {label: '<img src="legend/UnidadesdeConservaoFederalSEICMBIO2024_6.png" /> Unidades de Conservação Federal-SE (ICMBIO 2024)', layer: layer_UnidadesdeConservaoFederalSEICMBIO2024_6},
             {label: '<img src="legend/UnidadesdeConservaoFederalMMA_2025_03_5.png" /> Unidades de Conservação Federal(MMA_2025_03)', layer: layer_UnidadesdeConservaoFederalMMA_2025_03_5},
             {label: '<img src="legend/UnidadesdeConservaoEstadual_4.png" /> Unidades de Conservação Estadual', layer: layer_UnidadesdeConservaoEstadual_4},
             {label: '<img src="legend/readeaplicaodaLeidaMataAtlnticaPI_3.png" /> Área de aplicação da Lei da Mata Atlântica-PI', layer: layer_readeaplicaodaLeidaMataAtlnticaPI_3},
